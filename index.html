@@ -6,6 +6,7 @@
   <title>Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -21,16 +22,10 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
+            <a class="site-nav__link" href="about.html">О проекте</a>
+          </li>
+          <li class="site-nav__item">
             <a class="site-nav__link" href="contacts.html">Контакты</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
           </li>
         </ul>
       </nav>
@@ -74,6 +69,53 @@
         <li>подключение внешнего CSS-файла;</li>
         <li>подготовка к разработке многостраничного сайта.</li>
       </ul>
+    </section>
+
+    <section class="section" id="faq">
+      <h2>Часто задаваемые вопросы</h2>
+
+      <div class="faq">
+        <details class="faq__item">
+          <summary class="faq__question">Как оформить заказ?</summary>
+          <p class="faq__answer">
+            Нажмите кнопку «Заказать» на карточке товара, заполните форму
+            в появившемся окне и подтвердите отправку.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Нужна ли регистрация?</summary>
+          <p class="faq__answer">
+            Нет, для оформления заявки достаточно указать имя и e-mail.
+            Регистрация появится в следующих версиях проекта.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Как быстро обрабатывается заявка?</summary>
+          <p class="faq__answer">
+            В учебном проекте заявка никуда не отправляется — backend
+            пока не подключён. В реальном магазине ответ приходит в течение
+            одного рабочего дня.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Можно ли отменить заказ?</summary>
+          <p class="faq__answer">
+            Да, до момента подтверждения. Свяжитесь с нами по телефону
+            или e-mail со страницы «Контакты».
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Есть ли доставка?</summary>
+          <p class="faq__answer">
+            В учебном проекте доставка не реализована. Раздел появится
+            на следующих практических занятиях.
+          </p>
+        </details>
+      </div>
     </section>
 
     <section class="section" id="popular">
@@ -136,8 +178,27 @@
     <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
 
-  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-    <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+  <dialog
+    class="order-dialog"
+    id="order-dialog"
+    aria-labelledby="order-dialog-title"
+  >
+    <button
+      class="order-dialog__close"
+      type="button"
+      id="close-order-dialog-icon"
+      aria-label="Закрыть окно"
+    >
+      ×
+    </button>
+
+    <h2 class="order-dialog__title" id="order-dialog-title">
+      Оформление заявки
+    </h2>
+
+    <p class="order-dialog__product">
+      Выбран товар: <strong id="selected-product-name">—</strong>
+    </p>
 
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
       <div class="order-form__field">
@@ -148,6 +209,8 @@
           name="name"
           type="text"
           required
+          autocomplete="name"
+          placeholder="Введите ваше имя"
         >
       </div>
 
@@ -159,6 +222,8 @@
           name="email"
           type="email"
           required
+          autocomplete="email"
+          placeholder="you@example.com"
         >
       </div>
 
@@ -178,5 +243,14 @@
   <p class="success-message" id="success-message" hidden>
     Форма успешно отправлена!
   </p>
+
+  <button
+    class="scroll-top"
+    type="button"
+    aria-label="Наверх"
+    hidden
+  >
+    ↑
+  </button>
 </body>
 </html>
